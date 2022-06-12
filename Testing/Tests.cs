@@ -8,7 +8,7 @@ using System;
 namespace Testing
 {
     [TestFixture]
-    public class UtilsTests
+    public class Tests
     {
         [SetUp]
         public void Setup()
