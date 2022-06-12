@@ -15,6 +15,11 @@ namespace Mars_Rover.Models
         /// Represents y axis
         /// </summary>
         public int Y { get; set; }
+        public Position(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
         public Position()
         {
 
@@ -26,6 +31,8 @@ namespace Mars_Rover.Models
         }
 
         public static Position operator +(Position a, Position b) => Utils.GeneratePosition(a.X + b.X, a.Y + b.Y);
+        public static bool operator ==(Position a, Position b) => a.X == b.X && a.Y == b.Y;
+        public static bool operator !=(Position a, Position b) => !(a.X == b.X && a.Y == b.Y);
 
         public object Clone()
         {
