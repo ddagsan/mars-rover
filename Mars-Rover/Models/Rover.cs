@@ -34,20 +34,25 @@ namespace Mars_Rover.Models
             switch (CurrentCompassPoint)
             {
                 case CompassPoint.North:
-                    CurrentPosition.Y++;
+                    CurrentPosition += Utils.GeneratePosition(0, 1);
                     break;
                 case CompassPoint.East:
-                    CurrentPosition.X++;
+                    CurrentPosition += Utils.GeneratePosition(1, 0);
                     break;
                 case CompassPoint.South:
-                    CurrentPosition.Y--;
+                    CurrentPosition += Utils.GeneratePosition(0, -1);
                     break;
                 case CompassPoint.West:
-                    CurrentPosition.X--;
+                    CurrentPosition += Utils.GeneratePosition(-1, 0);
                     break;
                 default:
                     throw new NotImplementedException();
             }
+        }
+
+        public void CalculateForward()
+        {
+            throw new NotImplementedException();
         }
     }
 }
