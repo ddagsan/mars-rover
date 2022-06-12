@@ -22,6 +22,11 @@ namespace Mars_Rover.Models
             BL = Utils.GeneratePosition(0, 0);
         }
 
+        public Rectangle(int x, int y): this(new Position(x, y))
+        {
+            
+        }
+
         public bool IsInside(int x, int y)
         {
             var pos = new Position { X = x, Y = y };

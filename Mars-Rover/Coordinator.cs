@@ -15,7 +15,7 @@ namespace Mars_Rover
         public Coordinator(ITopography topography, IVehicle vehicle, string commands)
         {
             if (!topography.IsInside(vehicle.CurrentPosition))
-                throw new Exception("The vehicle is not inside the field.");
+                throw new InvalidOperationException("The vehicle is not inside the field.");
             _commands = commands;
             _vehicle = vehicle;
             _topography = topography;

@@ -10,7 +10,7 @@ namespace Mars_Rover.Factories
     public static class Utils
     {
         public static Position GeneratePosition(int x, int y) => new Position { X = x, Y = y };
-        public static CompassPoint GetFrom(this CompassPoint point, Direction direction)
+        public static CompassPoint GetFromDirection(this CompassPoint point, Direction direction)
         {
             var arr = Enum.GetValues(typeof(CompassPoint)).Cast<CompassPoint>();
             int q = arr.Count();

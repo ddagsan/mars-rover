@@ -21,12 +21,12 @@ namespace Mars_Rover.Models
 
         public void TurnRight()
         {
-            CurrentCompassPoint = CurrentCompassPoint.GetFrom(Direction.Right);
+            CurrentCompassPoint = CurrentCompassPoint.GetFromDirection(Direction.Right);
         }
 
         public void TurnLeft()
         {
-            CurrentCompassPoint = CurrentCompassPoint.GetFrom(Direction.Left);
+            CurrentCompassPoint = CurrentCompassPoint.GetFromDirection(Direction.Left);
         }
 
         public void Forward()
