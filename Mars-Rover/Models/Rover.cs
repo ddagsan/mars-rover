@@ -50,9 +50,28 @@ namespace Mars_Rover.Models
             }
         }
 
-        public void CalculateForward()
+        public Position CalculateForwardPosition()
         {
-            throw new NotImplementedException();
+            var clone = (Position)CurrentPosition.Clone();
+            switch (CurrentCompassPoint)
+            {
+                case CompassPoint.North:
+                    clone += Utils.GeneratePosition(0, 1);
+                    break;
+                case CompassPoint.East:
+                    clone += Utils.GeneratePosition(1, 0);
+                    break;
+                case CompassPoint.South:
+                    clone += Utils.GeneratePosition(0, -1);
+                    break;
+                case CompassPoint.West:
+                    clone += Utils.GeneratePosition(-1, 0);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return clone;
         }
     }
 }

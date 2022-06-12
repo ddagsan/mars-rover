@@ -13,6 +13,6 @@ namespace Mars_Rover.Interfaces
         void TurnRight();
         void TurnLeft();
         void Forward();
-        void CalculateForward();
+        Position CalculateForwardPosition();
     }
 }

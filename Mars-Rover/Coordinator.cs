@@ -1,4 +1,5 @@
-﻿using Mars_Rover.Interfaces;
+﻿using Mars_Rover.Factories;
+using Mars_Rover.Interfaces;
 using Mars_Rover.Models;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,11 @@ namespace Mars_Rover
             _topography = topography;
         }
 
-        public void Start() 
+        public void Start()
         {
+            Utils.Message($"Vehicle position is ({_vehicle.CurrentPosition.X}, {_vehicle.CurrentPosition.Y}, {_vehicle.CurrentCompassPoint}) at the beginning (X, Y, CompassPoint).");
+            Utils.Message($"Commands are \"{_commands}\".");
+
             foreach (char command in _commands)
             {
                 switch (command)
@@ -33,12 +37,18 @@ namespace Mars_Rover
                         _vehicle.TurnLeft();
                         break;
                     case 'M':
-                        _vehicle.Forward();
+                        if (_topography.IsInside(_vehicle.CalculateForwardPosition()))
+                            _vehicle.Forward();
                         break;
                     default:
                         throw new NotImplementedException();
                 }
             }
+
+            Utils.Message($"The last position of the vehicle is ({_vehicle.CurrentPosition.X}, {_vehicle.CurrentPosition.Y}, {_vehicle.CurrentCompassPoint})");
+            Utils.Message($"-----------------------");
+            Utils.Message($"-----------------------");
+            Utils.Message($"-----------------------");
         }
     }
 }

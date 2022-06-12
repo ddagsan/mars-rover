@@ -9,12 +9,13 @@ namespace Mars_Rover
     {
         static void Main(string[] args)
         {
-            string commands = "MMRMMRMRRM";
-
             var rect = new Rectangle(Utils.GeneratePosition(5, 5));
-            var rover = new Rover(Utils.GeneratePosition(3, 3), CompassPoint.East);
-            var coordinator = new Coordinator(rect, rover, commands);
-            coordinator.Start();
+            var rover1 = new Rover(Utils.GeneratePosition(1, 2), CompassPoint.North);
+            var coordinator1 = new Coordinator(rect, rover1, "LMLMLMLMM");
+            coordinator1.Start();
+            var rover2 = new Rover(Utils.GeneratePosition(3, 3), CompassPoint.East);
+            var coordinator2 = new Coordinator(rect, rover2, "MMRMMRMRRM");
+            coordinator2.Start();
         }
     }
 }

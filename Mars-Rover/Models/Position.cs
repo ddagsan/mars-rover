@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Mars_Rover.Models
 {
-    public class Position
+    public class Position : ICloneable
     {
         /// <summary>
         /// Represents x axis
@@ -19,7 +19,17 @@ namespace Mars_Rover.Models
         {
 
         }
+        public Position(Position pos)
+        {
+            X = pos.X;
+            Y = pos.Y;
+        }
 
         public static Position operator +(Position a, Position b) => Utils.GeneratePosition(a.X + b.X, a.Y + b.Y);
+
+        public object Clone()
+        {
+            return new Position(this);
+        }
     }
 }
