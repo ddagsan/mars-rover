@@ -29,7 +29,7 @@ namespace Mars_Rover.Factories
             if (number < 0)
                 number += q;
             else
-                number %= 4;
+                number %= q;
             return (CompassPoint)Enum.Parse(typeof(CompassPoint), number.ToString());
         }
 
